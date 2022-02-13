@@ -18,6 +18,8 @@
 </head>
 <body style="background-image:url('image/medi.jpg')"> 
 
+<%--<h1><%= p1.getPname() %> <%= p1.getPid() %></h1> --%>
+
 <a href="LogoutServlet" style="float:right;" ><button class="btn btn-outline-danger my-2 my-sm-0">Log-Out</button></a>
 
 <%

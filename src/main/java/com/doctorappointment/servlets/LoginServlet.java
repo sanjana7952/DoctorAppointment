@@ -82,26 +82,24 @@ public class LoginServlet extends HttpServlet {
 	
 		}else if(op.trim().equals("patient")) {
 			
-			 String pname=request.getParameter("name");
-			 String pmobile=request.getParameter("mobile");
+			 String pname=request.getParameter("name");  
+			 String pmobile=request.getParameter("mobile");  
 			 
 			 Patient p=new Patient(pname, pmobile);
 			 Session hibernateSession = FactoryProvider.getFactory().openSession();
  			 Transaction txn = hibernateSession.beginTransaction();
- 			 hibernateSession.save(p);
+ 			 int pid=(Integer) hibernateSession.save(p); 
  			 txn.commit();
  			 
- 			 
  			 Patient currPatient=new Patient();
- 			 String query = "from Patient where pname = :n and pmobile= :m";
+ 			 String query = "from Patient where pid =:id";
  			 Query q=hibernateSession.createQuery(query);
- 			 q.setParameter("n",pname);
- 			 q.setParameter("m",pmobile);
+ 			 q.setParameter("id",pid);
  			 currPatient=(Patient) q.uniqueResult();
  			 hibernateSession.close();
 
  			HttpSession session = request.getSession();
- 			session.setAttribute("current_patient",currPatient);  /////////////////////
+ 			session.setAttribute("current_patient",currPatient); 
  			response.sendRedirect("bookappointment.jsp");
  			return;
  			
