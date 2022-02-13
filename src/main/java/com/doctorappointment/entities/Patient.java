@@ -15,39 +15,44 @@ public class Patient {
 	  
 	  private String pname;
       private String pmobile;
+      private String adate;
 	  
 	  @ManyToOne
 	  private Doctor doctor;
-	  
-    public Doctor getDoctor() {
-	    return doctor;
-	}
 
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
-
-	public Patient(Doctor doctor) {
-		super();
-		this.doctor = doctor;
-	}
-      
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Patient(int pid, String pname, String mobile) {
+	public Patient(int pid, String pname, String pmobile, String adate, Doctor doctor) {
 		super();
 		this.pid = pid;
 		this.pname = pname;
-		this.pmobile = mobile;
+		this.pmobile = pmobile;
+		this.adate = adate;
+		this.doctor = doctor;
 	}
 
-	public Patient(String pname, String mobile) {
+	public Patient(String pname, String pmobile, String adate, Doctor doctor) {
 		super();
 		this.pname = pname;
-		this.pmobile = mobile;
+		this.pmobile = pmobile;
+		this.adate = adate;
+		this.doctor = doctor;
+	}
+
+	public Patient(String pname, String pmobile, String adate) {
+		super();
+		this.pname = pname;
+		this.pmobile = pmobile;
+		this.adate = adate;
+	}
+
+	public Patient(String pname, String pmobile) {
+		super();
+		this.pname = pname;
+		this.pmobile = pmobile;
 	}
 
 	public int getPid() {
@@ -66,17 +71,33 @@ public class Patient {
 		this.pname = pname;
 	}
 
-	public String getMobile() {
+	public String getPmobile() {
 		return pmobile;
 	}
 
-	public void setMobile(String mobile) {
-		this.pmobile = mobile;
+	public void setPmobile(String pmobile) {
+		this.pmobile = pmobile;
+	}
+
+	public String getAdate() {
+		return adate;
+	}
+
+	public void setAdate(String adate) {
+		this.adate = adate;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
 	@Override
 	public String toString() {
-		return "Patient [pid=" + pid + ", doctor=" + doctor + ", pname=" + pname + ", mobile=" + pmobile + "]";
-	}
-   
+		return "Patient [pid=" + pid + ", pname=" + pname + ", pmobile=" + pmobile + ", adate=" + adate + ", doctor="
+				+ doctor + "]";
+	}  
 }

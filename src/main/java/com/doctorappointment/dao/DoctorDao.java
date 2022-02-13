@@ -27,12 +27,10 @@ public Doctor getDoctorByUserNameAndPassword(String username,String password) {
         try {
 
                String query = "from Doctor where dusername= :e and dpassword= :p";
-
                Session session = this.factory.openSession();
                Query q=session.createQuery(query);
                q.setParameter("e",username);
                q.setParameter("p", password);
-
                d = (Doctor) q.uniqueResult();
                session.close();
 
@@ -41,31 +39,23 @@ public Doctor getDoctorByUserNameAndPassword(String username,String password) {
                e.printStackTrace();
 
         }
-
+        
         return d;
-
 }
 	
 public Doctor getDoctorByUsername(String username) {
-	  Doctor d=null;
-	  
+	
+	 Doctor d=null;  
      try {
-
-         /// HQL
-
              String query = "from Doctor where dusername= :e";
-
              Session session = this.factory.openSession();
              Query q=session.createQuery(query);
              q.setParameter("e",username);
              d = (Doctor) q.uniqueResult();
              session.close();
-    
 
       }catch(Exception e) {
-
              e.printStackTrace();
-
       }
      
       return d;
@@ -73,16 +63,11 @@ public Doctor getDoctorByUsername(String username) {
  
  
 	
-public List<Doctor> getDoctorsList() {
-		
+public List<Doctor> getDoctorsList() {	
 		Session session = this.factory.openSession();
-		
-		//Use HQL to fire query
 		Query query = session.createQuery("from Doctor");
 		List<Doctor> resultList = query.getResultList();
-		
 		session.close();
-		
 		return resultList;
 }
 	

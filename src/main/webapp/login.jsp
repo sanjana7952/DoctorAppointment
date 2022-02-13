@@ -21,6 +21,8 @@
 						<%@include file="components/message.jsp" %>
 						<form action="LoginServlet" method="post">
 						
+						   <input type="hidden" name="op" value="doctor" >
+						
 							<div class="form-group">
 								<label for="exampleInputEmail1">User name</label> 
 								<input type="text" name="username" class="form-control" id="exampleInputEmail1"
@@ -56,7 +58,9 @@
 						<h3>Patients Login</h3>
 					</div>
 					<div class="card-body">
-						<form action="bookappointment.jsp" method="post">
+						<form action="LoginServlet" method="post">
+						
+						    <input type="hidden" name="op" value="patient">
 						
 							<div class="form-group">
 								<label for="name">Name</label> 
@@ -66,7 +70,7 @@
 							
 							<div class="form-group">
 								<label for="phone">Mobile</label> 
-								<input name="number" type="number" class="form-control" id="phone"
+								<input name="mobile" type="number" class="form-control" id="phone"
 									placeholder="Enter your number" req>
 							</div>
 							<div class="container text-center mt-3">

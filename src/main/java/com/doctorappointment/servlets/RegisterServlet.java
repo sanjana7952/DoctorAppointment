@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,7 +50,7 @@ public class RegisterServlet extends HttpServlet {
 			String Dusername = request.getParameter("username");
 			String Dpassword = request.getParameter("password");
 			
-			Doctor doctor = new Doctor(Dname, Dpassword, Dusername);
+			Doctor doctor = new Doctor(Dname, Dusername, Dpassword);
 			
 			DoctorDao doctorDao = new DoctorDao(FactoryProvider.getFactory()); 
 			

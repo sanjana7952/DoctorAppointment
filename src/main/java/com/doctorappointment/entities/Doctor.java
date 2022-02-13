@@ -1,6 +1,5 @@
 package com.doctorappointment.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -18,82 +17,87 @@ public class Doctor {
 	   
 	   private String dname;
 	   
-	   private String dpassword;
-	   
 	   private String dusername;
 	   
+	   private String dpassword;
+	
+	   
 	   @OneToMany(mappedBy = "doctor")
-	   private List<Patient> patient = new ArrayList<Patient>();
+	   private List<Patient> plist;
 
-		public Doctor(List<Patient> patient) {
+	public Doctor() {
 		super();
-		this.patient = patient;
-		}
+		// TODO Auto-generated constructor stub
+	}
 
-		public List<Patient> getPatient() {
-		return patient;
-		}
+	public Doctor(int did, String dname, String dpassword, String dusername, List<Patient> plist) {
+		super();
+		this.did = did;
+		this.dname = dname;
+		this.dpassword = dpassword;
+		this.dusername = dusername;
+		this.plist = plist;
+	}
 
-		public void setPatient(List<Patient> patient) {
-			this.patient = patient;
-		}
+	public Doctor(String dname, String dpassword, String dusername, List<Patient> plist) {
+		super();
+		this.dname = dname;
+		this.dpassword = dpassword;
+		this.dusername = dusername;
+		this.plist = plist;
+	}
+	
+	public Doctor(String dname, String dusername, String dpassword) {
+		super();
+		this.dname = dname;
+		this.dusername = dusername;
+		this.dpassword = dpassword;
+	}
 
-		public Doctor() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
+	public int getDid() {
+		return did;
+	}
 
-		public Doctor(int did, String dname, String dpassword, String dusername) {
-			super();
-			this.did = did;
-			this.dname = dname;
-			this.dpassword = dpassword;
-			this.dusername = dusername;
-		}
+	public void setDid(int did) {
+		this.did = did;
+	}
 
-		public Doctor(String dname, String dpassword, String dusername) {
-			super();
-			this.dname = dname;
-			this.dpassword = dpassword;
-			this.dusername = dusername;
-		}
+	public String getDname() {
+		return dname;
+	}
 
-		public int getDid() {
-			return did;
-		}
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
 
-		public void setDid(int did) {
-			this.did = did;
-		}
+	public String getDpassword() {
+		return dpassword;
+	}
 
-		public String getDname() {
-			return dname;
-		}
+	public void setDpassword(String dpassword) {
+		this.dpassword = dpassword;
+	}
 
-		public void setDname(String dname) {
-			this.dname = dname;
-		}
+	public String getDusername() {
+		return dusername;
+	}
 
-		public String getDpassword() {
-			return dpassword;
-		}
+	public void setDusername(String dusername) {
+		this.dusername = dusername;
+	}
 
-		public void setDpassword(String dpassword) {
-			this.dpassword = dpassword;
-		}
+	public List<Patient> getPlist() {
+		return plist;
+	}
 
-		public String getDusername() {
-			return dusername;
-		}
+	public void setPlist(List<Patient> plist) {
+		this.plist = plist;
+	}
 
-		public void setDusername(String dusername) {
-			this.dusername = dusername;
-		}
-
-		@Override
-		public String toString() {
-			return "Doctor [did=" + did + ", dname=" + dname + ", dpassword=" + dpassword + ", dusername=" + dusername
-					+ ", patient=" + patient + "]";
-		}
-			   
+	@Override
+	public String toString() {
+		return "Doctor [did=" + did + ", dname=" + dname + ", dpassword=" + dpassword + ", dusername=" + dusername
+				+ ", plist=" + plist + "]";
+	}
+  	
 }
