@@ -30,6 +30,7 @@ public class LogoutServlet extends HttpServlet {
 		  HttpSession session=request.getSession();
 		  session.removeAttribute("current_doctor");
 		  session.removeAttribute("current_patient");
+		  session.removeAttribute("plist");
 		  response.sendRedirect("index.jsp");
 	}
 

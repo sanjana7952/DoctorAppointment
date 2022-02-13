@@ -6,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime; 
+
 import com.doctorappointment.entities.Doctor;
 
 public class DoctorDao {
@@ -63,12 +66,21 @@ public Doctor getDoctorByUsername(String username) {
  
  
 	
-public List<Doctor> getDoctorsList() {	
+ public List<Doctor> getDoctorsList() {	
 		Session session = this.factory.openSession();
 		Query query = session.createQuery("from Doctor");
 		List<Doctor> resultList = query.getResultList();
 		session.close();
 		return resultList;
 }
-	
+
+
+	 
+  public String getCurrentDate() {  
+   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+   LocalDateTime now = LocalDateTime.now();
+   String date=dtf.format(now);
+   return date;
+  }  
+
 }

@@ -7,6 +7,8 @@ import org.hibernate.query.Query;
 
 import com.doctorappointment.entities.Doctor;
 import com.doctorappointment.entities.Patient;
+import com.doctorappointment.helper.FactoryProvider;
+
 import java.util.List;
 
 public class PatientDao {
@@ -57,6 +59,25 @@ public class PatientDao {
      
 	 return plist;
  }
+ 
+ public List<Patient> getCurrentDatePatients(int did){
+	 List<Patient> todayPatientsList=null;
+	 DoctorDao ddao = new DoctorDao(FactoryProvider.getFactory());
+	 String date=ddao.getCurrentDate();
 	 
 	 
+		
+      String query =
+		  "from Patient as p where p.doctor.did = :did and adate= :date";
+
+          Session session = this.factory.openSession();
+		  Query<Patient> q=session.createQuery(query); 
+		  q.setParameter("did",did);
+		  q.setParameter("date",date);
+		  todayPatientsList=q.getResultList();
+		  session.close();	
+     
+	      return todayPatientsList; 
+ } 
+ 
 }

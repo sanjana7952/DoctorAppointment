@@ -99,7 +99,14 @@ public class AppointmentServlet extends HttpServlet {
 				 e.printStackTrace();
 			 }
 			 
-		}else {
+		}else if(op.trim().equals("destroyPlist"))
+		{
+			 HttpSession session=request.getSession();
+			 session.removeAttribute("plist");
+			 response.sendRedirect("appointment.jsp");
+			 
+		}
+		else {
 			 HttpSession Httpsession=request.getSession();
 			 Httpsession.setAttribute("message", "ERROR !!");
 			 response.sendRedirect("index.jsp");
