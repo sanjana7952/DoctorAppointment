@@ -31,6 +31,7 @@ public class LogoutServlet extends HttpServlet {
 		  session.removeAttribute("current_doctor");
 		  session.removeAttribute("current_patient");
 		  session.removeAttribute("plist");
+		  session.removeAttribute("tplist");
 		  response.sendRedirect("index.jsp");
 	}
 

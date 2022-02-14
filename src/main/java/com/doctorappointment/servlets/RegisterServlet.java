@@ -71,6 +71,10 @@ public class RegisterServlet extends HttpServlet {
     			txn.commit();
     			hibernateSession.close();
     			
+                HttpSession httpsession = request.getSession();
+            	
+            	httpsession.setAttribute("message","Registration Successfull!");
+
     			
     			response.sendRedirect("login.jsp");
     			return;
