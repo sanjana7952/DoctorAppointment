@@ -37,6 +37,7 @@ height: auto;
  background-size:cover ;
 background-attachment: fixed; 
 overflow:; ">
+<%@include file="components/message.jsp" %>
 			<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-1">
@@ -47,7 +48,7 @@ overflow:; ">
 						
 					</div>
 					<div class="card-body">
-						<%@include file="components/message.jsp" %>
+						
 						<form action="LoginServlet" method="post">
 						
 						   <input type="hidden" name="op" value="doctor" >

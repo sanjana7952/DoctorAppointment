@@ -59,7 +59,7 @@
 				%>
 				<ul class="navbar-nav ml-auto">
                 <li class="nav-item text-white">
-						 <a class="nav-link active" href="index.jsp">Welcome <%=doctor1.getDname() %>&nbsp;&nbsp;</a>
+						 <a class="nav-link active" href="appointment.jsp">Welcome <%=doctor1.getDname() %>&nbsp;&nbsp;</a>
                 </li>
                 <li class="nav-item">
                 	
@@ -77,7 +77,7 @@
                 <% } else if(patient1!=null){ %>
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                	<a class="nav-link active" href="index.jsp">Welcome <%= patient1.getPname() %>&nbsp;&nbsp;</a>
+                	<a class="nav-link active" href="bookappointment.jsp">Welcome <%= patient1.getPname() %>&nbsp;&nbsp;</a>
                 </li>
                 <li class="nav-item">
                 	<a href="LogoutServlet" class="btn btn-danger my-2 my-sm-0">Log-Out</a>

@@ -58,8 +58,11 @@ public class AppointmentServlet extends HttpServlet {
 				boolean flag = pdao.addAppointment(pid ,did, date);
                 
 				if(flag==true) {
-					session.setAttribute("message", "Appointment booked successfully !!!");
-					response.sendRedirect("bookappointment.jsp");
+					session.setAttribute("message", "Appointment booked successfully. You will get further information on your mobile number !!!");
+					HttpSession session1 = request.getSession();
+					session1.removeAttribute("current_patient");
+					response.sendRedirect("login.jsp");
+					
 				}else {
 					session.setAttribute("message", "Error ..Failed to book appoinment !! ");
 					response.sendRedirect("bookappointment.jsp");
