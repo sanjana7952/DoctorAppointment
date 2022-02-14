@@ -14,16 +14,16 @@
 <title>Insert title here</title>
 
 <%@include file="components/common_css_js.jsp" %>
-<%@include file="components/navbar.jsp" %>
+<%@include file="components/navbar.jsp" %><br>
 
 
 <style>
 
 h1{
 
-color: white;
+color: #333;
 
-background-color:#333;
+/* background-color:#333; */
 
 text-align: center;
 
@@ -43,33 +43,35 @@ color: black;
 
  
 
-button{
+/* #btn{
 
 position:absolute;
 
 right:600px;
-
+bottom:5px;
  
 
  
 
-}
+} */
 
  
 
 .card{
 
-border-radius:20%;
+border-radius:;
 
-padding-top:60px;
+padding-top:50px!important;
 
-width: 400px;
+width: 400px!important;
 
-border-color: #6AC1D4;
+border-color: #6AC1D4!important;
 
-border-width:medium;
+border-width:medium!important;
 
-margin-left:350px;
+margin-left:350px!important;
+
+background-color:#D3E9E8!important;
 
  
 
@@ -79,13 +81,20 @@ margin-left:350px;
 
  
 
-background-color: #6AC1D4;
+background-color:#6AC1D4 ;
 
 border-radius:;
 
  
 
 }
+/* #btn{
+position:absolute;
+right:200px;
+
+
+
+} */
 
  
 
@@ -93,8 +102,11 @@ border-radius:;
 </style>
 
 </head>
-<body style="background-image:url('https://thumbs.dreamstime.com/z/concept-appointment-to-doctor-online-top-view-wooden-background-83320913.jpg');
+<body style="/* background-image:url('https://thumbs.dreamstime.com/z/concept-appointment-to-doctor-online-top-view-wooden-background-83320913.jpg'); */
 
+background-image:url('image/appoint.jpg');
+
+/* background-color: #6193b5; */
 background-repeat: no-repeat;
 
 height: auto;
@@ -122,7 +134,7 @@ overflow:; ">
 
 
 
-<h1><b> Book Your Appointment</b></h1>
+<h1><b> Book Your Appointment</b></h1> <br><br>
 
 	<%
 	DoctorDao ddao = new DoctorDao(FactoryProvider.getFactory());
@@ -131,12 +143,49 @@ overflow:; ">
 	
 <div class="container text-center">
 
-       <div class="card mt-5 text-center">
+<div class="card">
+<div class="card-header custom-bg1 text-white text-center ">
+<h4 class="text-center"><b>Doctor Name</b></h4>
+</div><br>
+<form action="AppointmentServlet" method="post">
+
+<input type="hidden" name="oprt" value="bookAppointment" >
+
+  <div class="form-group">
+    
+    <div class="dropdown">
+    <div class="form-group text-center">
+    
+	  <select name="doctor">
+	      <% for(Doctor d: dlist){ %>
+	          <option value="<%=d.getDid()%>"> <%=d.getDname()%> </option> 
+	      <% }  %>
+	 </select>
+    </div>
+    </div>
+    
+  </div>
+  <div class="form-group">
+  
+  <h4 class="text-center"><b>Date</b> </h4>
+      <input type="date" id="dateInput" name="date" class="text-center">
+    
+  </div>
+  
+  
+  <button type="submit" class="btn btn-success">Submit</button><br><br>
+  
+  
+</form>
+</div>
+
+       <%-- <div class="card mt-5 mb-5 text-center">
 
        <div class="card-header custom-bg1 text-white text-center ">	
 			
 			<h4 class="text-center"><b>Doctor Name</b></h4>
 		</div>
+		<div class="card-body">
 <form action="AppointmentServlet" method="post">
     
     <input type="hidden" name="oprt" value="bookAppointment" >
@@ -152,15 +201,20 @@ overflow:; ">
     <h4 class="text-center"><b>Date</b> </h4>
       <input type="date" id="dateInput" name="date" class="text-center">
       
-      <div class="container  mt-3 ">
       
-      <button type="submit" class="btn btn-primary">Submit</button>
       
-      </div>
+      <input  value="Submit" id="btn" type="submit" class="form-group btn btn-primary">
+      
+      
       
 </form> 
+</div>
+</div> --%>
 
-</div>
-</div>
+
+
+</div><br><br><br>
+
+<%@include file="components/footer.jsp" %>
 </body>
 </html>

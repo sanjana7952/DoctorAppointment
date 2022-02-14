@@ -10,43 +10,45 @@
 
 <style>
 
-* {
+ * {
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
-}
-ul {
+} 
+/* ul {
   list-style: none;
   padding-left: 0;
-}
+} */
 footer {
-  background-color: #555;
+  background-color: #333;
   color: #bbb;
   line-height: 1.5;
+  opacity: 0.9; 
+    filter:(opacity=30); 
 }
 footer a {
   text-decoration: none;
-  color: #eee;
+  color:white /* #eee */;
 }
 a:hover {
-  text-decoration: underline;
+  text-color: ;
 }
 .ft-title {
-  color: #fff;
+  color: white;
   font-family: "Merriweather", serif;
   font-size: 1.375rem;
   padding-bottom: 0.625rem;
 }
 /* Sticks footer to bottom */
-body {
+/* body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
-.container {
+} */
+/* .container {
   flex: 1;
-}
+} */
 /* Footer main */
 .ft-main {
   padding: 1.25rem 1.875rem;
@@ -69,23 +71,23 @@ body {
 }
 
 /* Footer main | Newsletter form */
-form {
+/* form {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 input[type="email"] {
   border: 0;
   padding: 0.625rem;
   margin-top: 0.3125rem;
 }
-input[type="submit"] {
+ input[type="submit"] {
   background-color: #00d188;
   color: #fff;
   cursor: pointer;
   border: 0;
   padding: 0.625rem 0.9375rem;
   margin-top: 0.3125rem;
-}
+} 
 /* Footer social */
 .ft-social {
   padding: 0 1.875rem 1.25rem;
@@ -151,6 +153,7 @@ input[type="submit"] {
         <li><a href="#">Help</a></li>
         <li><a href="#">Sales</a></li>
         <li><a href="#">Advertise</a></li>
+        <li><a href="mailto:janunarni@gmail.com">Contact Us</a></li>
       </ul>
     </div>
     <div class="ft-main-item">
@@ -166,12 +169,12 @@ input[type="submit"] {
   <!-- Footer social -->
   <section class="ft-social">
     <ul class="ft-social-list">
-      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-      <li><a href="#"><i class="fab fa-github"></i></a></li>
-      <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+      <a href="#"><i class="fab fa-facebook fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="#"><i class="fab fa-twitter fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="#"><i class="fab fa-instagram fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="#"><i class="fab fa-github fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
+      <a href="#"><i class="fab fa-youtube fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
     </ul>
   </section>
 
@@ -180,7 +183,7 @@ input[type="submit"] {
     <ul class="ft-legal-list">
       <li><a href="#">Terms &amp; Conditions</a></li>
       <li><a href="#">Privacy Policy</a></li>
-      <li>&copy; 2021 by Meow Media, LLC</li>
+      <li>&copy; 2022 by DoctorAppointment, LLC</li>
     </ul>
   </section>
 </footer>

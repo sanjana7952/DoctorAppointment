@@ -100,7 +100,9 @@ public class LoginServlet extends HttpServlet {
 
  			HttpSession session = request.getSession();
  			session.setAttribute("current_patient",currPatient); 
+ 			session.removeAttribute("current_doctor");
  			response.sendRedirect("bookappointment.jsp");
+ 			
  			return;
  			
 		}else {

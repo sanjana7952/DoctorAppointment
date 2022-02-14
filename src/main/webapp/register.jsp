@@ -11,10 +11,11 @@
 
 <style type="text/css">
     .card{
-    border-radius:20%;
+    border-radius:20%!important;
     padding-top:60px;
     width: 400px;
-    background-color: #acd6d5    /* rgba(2,2,5,0.2) */;
+    background-color: #acd6d5!important    /* rgba(2,2,5,0.2) */;
+     margin-left:300px;
 
 
     }
@@ -35,12 +36,12 @@
 </head>
 <body style="background-image:url('image/registerdoc.jpg');
     background-repeat: no-repeat;
-    height: 100%; 
-    width: 100%; 
-    margin-left:300px;
+    height: auto; 
+    max-width: 100%; 
+    /* margin-left:300px; */
     background-size: cover;
     background-attachment: fixed; 
-    overflow: hidden; "> 
+    overflow:; "> 
 	<div class="container">
         <div class="row">
             <div class="col-md-6 offset-3">
@@ -72,8 +73,8 @@
 							</div>
             
                             <div class="container text-center mt-3">
-                                <button type="submit" class="btn btn-primary custom-bg1 border-0">Submit</button>
-                                <button type="reset" class="btn btn-primary custom-bg1 border-0">Reset</button>
+                                <button type="submit" class="btn btn-success border-0">Submit</button>
+                                <button type="reset" class="btn btn-primary  border-0">Reset</button>
                             </div>
                             <br>
                             
@@ -89,6 +90,8 @@
         
           
          </div>
-    </div>     
+    </div> <br><br><br>
+    
+    <%@include file="components/footer.jsp" %>    
 </body>
 </html>

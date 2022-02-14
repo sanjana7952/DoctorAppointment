@@ -32,7 +32,7 @@ left:200px
 body{
 
 text-align: center;
-color: white;
+color: black;
 font-family: cursive;
 
 }
@@ -47,7 +47,7 @@ font-family: cursive;
 	width: 100%; 
 	background-size: cover;
 	background-attachment: fixed; 
-	overflow: hidden; /* Hide scrollbars */">
+	overflow: ; /* Hide scrollbars */">
 
 
 <%@include file="components/navbar.jsp" %>
@@ -64,8 +64,8 @@ We will be out of service for 14th and 15th of March in the event of Holi. Emerg
   
   <button id="btnone"  class="btn btn-success btn-lg" onclick="window.location='login.jsp'"> Login  </button>
   <button id="btntwo" class="btn btn-success btn-lg" onclick="window.location='register.jsp'"> Register  </button>
-	</div>
+	</div><br><br><br>
 	
-
+<%@include file="components/footer.jsp" %>
 </body>
 </html>

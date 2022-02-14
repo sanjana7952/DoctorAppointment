@@ -17,9 +17,9 @@
 		<!-- MY SQl database connection and mapping -->
 
 		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/doctordb</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/project_db</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
+        <property name="connection.password">sanjana</property>
 		
 		
 	    <!-- hibernate properties -->

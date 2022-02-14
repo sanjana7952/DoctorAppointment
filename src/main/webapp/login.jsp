@@ -15,14 +15,12 @@ background-color: #6AC1D4;
 border-radius:;
 
 }
-button{
-background-color: #6a8cd4;
-}
+
 .card{
-border-radius:20%;
+border-radius:20%!important;
 padding-top:60px;
 width: 400px;
-border-color: #6AC1D4;
+border-color: #6AC1D4!important;
 border-width:medium;
 }
 
@@ -54,13 +52,13 @@ overflow:; ">
 						   <input type="hidden" name="op" value="doctor" >
 						
 							<div class="form-group">
-								<label for="exampleInputEmail1">User name</label> 
+								<label for="exampleInputEmail1"><b>User name :</b></label> 
 								<input type="text" name="username" class="form-control" id="exampleInputEmail1"
 									aria-describedby="emailHelp" placeholder="Enter email" required="required">
 							</div>
 							
 							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label> 
+								<label for="exampleInputPassword1"><b>Password :</b></label> 
 								<input name="password" type="password" class="form-control" id="exampleInputPassword1"
 									placeholder="Password" required="required">
 							</div>
@@ -86,20 +84,20 @@ overflow:; ">
 				<div class="card mt-5 offset-position: left;">
 					<div class="card-header custom-bg1 text-white">
 						<h3 class="text-center"><b>Patients Login</b> <span><i class="fas fa-hospital-user Logo-small"></i></span></h3>
-					</div>
+					</div><br>
 					<div class="card-body">
 						<form action="LoginServlet" method="post">
 						
 						    <input type="hidden" name="op" value="patient">
 						
 							<div class="form-group">
-								<label for="name">Name</label> 
+								<label for="name"><b>Name :</b></label> 
 								<input type="text" name="name" class="form-control" id="name"
 									aria-describedby="emailHelp" placeholder="Enter your name" required="required">
 							</div>
 							
 							<div class="form-group">
-								<label for="phone">Mobile</label> 
+								<label for="phone"><b>Mobile Number :</b></label> 
 								<input name="mobile" type="number" class="form-control" id="phone"
 									placeholder="Enter your number" req>
 							</div>
@@ -117,5 +115,9 @@ overflow:; ">
 			</div>
 		</div>
 	</div>
+	<br> <br> <br>
+	
+	<%@include file="components/footer.jsp" %>
+	
 </body>
 </html>

@@ -21,27 +21,27 @@
 
 h1{
 
-background-color: #29918D;
-height:60px;
-width: 450px;
-border-radius:30px;
-position: absolute;
-background-attachment:fixed ;
-left:425px;
+background-color: #29918D!important;
+height:60px!important;
+width: 450px!important;
+border-radius:30px!important;
+position: absolute!important;
+background-attachment:fixed!important ;
+left:425px!important;
 
 }
 
 h1 {
 
-text-align: center;
+text-align: center!important;
 
 }
 
 .center {
 
-  margin-left: auto;
+  margin-left: auto!important;
 
-  margin-right: auto;
+  margin-right: auto!important;
 
 }
 
@@ -81,9 +81,9 @@ font-size:20px;     }
 
 th {                              /* removed the border from the table heading row  */
 
-text-align: center;                
+text-align: center!important;                
 
-padding: 1em;
+padding: 1em!;
 
 background-color:#29918D;      /* added a red background color to the heading cells  */
 
@@ -95,7 +95,7 @@ font-size:25px;      }                 /* added a white font color to the headin
 
 tr {   
 
-height: 1em;    }
+height: 1em!important;    }
 
  
 
@@ -292,9 +292,8 @@ background-attachment: fixed;
 
        </div>
 
-</div>
-
+</div><br><br><br>
+<%-- <%@include file="components/footer.jsp" %>  --%>
 </body>
 
-</html>
 </html>
