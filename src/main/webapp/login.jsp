@@ -6,15 +6,44 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <%@include file="components/common_css_js.jsp"%>
+<%@include file="components/navbar.jsp" %>
+
+<style>
+.card-header{
+
+background-color: #6AC1D4;
+border-radius:;
+
+}
+button{
+background-color: #6a8cd4;
+}
+.card{
+border-radius:20%;
+padding-top:60px;
+width: 400px;
+border-color: #6AC1D4;
+border-width:medium;
+}
+
+
+</style>
+
 </head>
-<body style="background-image:url('image/medi.jpg')">
+<body style="background-image:url('https://media.istockphoto.com/photos/doctor-writing-a-medical-prescription-picture-id1319031310?b=1&k=20&m=1319031310&s=170667a&w=0&h=crYyw4Jk5naigYVJEALChMZoAeld_kjaoIpNIaAnCZQ=');
+background-repeat: no-repeat;
+height: auto; 
+ max-width: 100%; 
+ background-size:cover ;
+background-attachment: fixed; 
+overflow:; ">
 			<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4 offset-1">
 
-				<div class="card mt-4">
+				<div class="card mt-5 offset-position: left;">
 					<div class="card-header custom-bg1 text-white">
-						<h3>Doctors Login</h3>
+						<h3 class="text-center"><b>Doctors Login</b> <span><i class="fas fa-stethoscope Logo-small"></i></span></h3>
 						
 					</div>
 					<div class="card-body">
@@ -41,7 +70,7 @@
 							</div>
 							<br>
 							
-							<a href="register.jsp" class="text-center d-block "> register.....</a>
+							<a href="register.jsp" class="text-center d-block "> <b>REGISTER</b></a>
 							
 						</form>
 
@@ -51,11 +80,11 @@
 
 			</div>
 			<!-- end of card -->
-            <div class="col-md-6">
+            <div class="col-md-4 offset-2">
 
-				<div class="card mt-4">
+				<div class="card mt-5 offset-position: left;">
 					<div class="card-header custom-bg1 text-white">
-						<h3>Patients Login</h3>
+						<h3 class="text-center"><b>Patients Login</b> <span><i class="fas fa-hospital-user Logo-small"></i></span></h3>
 					</div>
 					<div class="card-body">
 						<form action="LoginServlet" method="post">

@@ -14,13 +14,12 @@
 <title>Insert title here</title>
 
 <%@include file="components/common_css_js.jsp" %>
+<%@include file="components/navbar.jsp" %>
 
 </head>
 <body style="background-image:url('image/medi.jpg')"> 
 
-<%--<h1><%= p1.getPname() %> <%= p1.getPid() %></h1> --%>
 
-<a href="LogoutServlet" style="float:right;" ><button class="btn btn-outline-danger my-2 my-sm-0">Log-Out</button></a>
 
 <%
      Patient patient= (Patient)session.getAttribute("current_patient");

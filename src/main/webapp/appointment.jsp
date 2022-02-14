@@ -14,89 +14,287 @@
 
 <%@include file="components/message.jsp" %>
 <%@include file="components/common_css_js.jsp" %>
+<%@include file="components/navbar.jsp" %>
 </head>
 
-<body>
+<style type="text/css">
+
+h1{
+
+background-color: #29918D;
+height:60px;
+width: 450px;
+border-radius:30px;
+position: absolute;
+background-attachment:fixed ;
+left:425px;
+
+}
+
+h1 {
+
+text-align: center;
+
+}
+
+.center {
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+}
+
+ 
+
+table {
+
+font-family: "Lato","sans-serif"; 
+
+opacity:0.9;
+
+}       /* added custom font-family  */
+
+ 
+
+table.one {                                 
+
+margin-bottom: 3em;
+
+border-collapse:collapse;   }  
+
+ 
+
+td {                            /* removed the border from the table data rows  */
+
+text-align: center;    
+
+width: 10em;                   
+
+padding: 1em;
+
+color:black;
+
+font-size:20px;     }      
+
+ 
+
+th {                              /* removed the border from the table heading row  */
+
+text-align: center;                
+
+padding: 1em;
+
+background-color:#29918D;      /* added a red background color to the heading cells  */
+
+color: white;
+
+font-size:25px;      }                 /* added a white font color to the heading text */
+
+ 
+
+tr {   
+
+height: 1em;    }
+
+ 
+
+table tr:nth-child(even) {            /* added all even rows a #eee color  */
+
+    background-color:#C0EAE8 ;
+
+  
+
+        }
+
+ 
+
+table tr:nth-child(odd) {            /* added all odd rows a #fff color  */
+
+background-color:white;      }
+ 
+
+</style>
+
+</head>
+
+ 
+
+<body style="background-image:url('https://46epqg1nvwdyfsoda2r2gw01-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/appointment-1024x683.jpg');
+
+background-repeat: no-repeat;
+
+height: 100%;
+
+ width: 100%;
+
+ margin-left:auto;
+
+margin-right:auto;
+
+background-size: cover;
+
+background-attachment: fixed;
+
+">
+
 <%
+
      Doctor doctor= (Doctor)session.getAttribute("current_doctor");
+
      if(doctor==null){
-    	 session.setAttribute("message","Not Logged-in ..Please Login First!!");
-    	 response.sendRedirect("login.jsp");
-    	 return;
+
+        session.setAttribute("message","Not Logged-in ..Please Login First!!");
+
+        response.sendRedirect("login.jsp");
+
+        return;
+
      }
+
 %>
 
+ 
 
-<a href="LogoutServlet" style="float:right;" ><button class="btn btn-outline-danger my-2 my-sm-0">Log-Out</button></a>
+ 
 
+<!-- <a href="LogoutServlet" style="float:right;" ><button class="btn btn-outline-danger my-2 my-sm-0">Log-Out</button></a>
+
+-->
+
+ 
 
 <div class="container text-center">
-    <br><h1>Appointment List</h1><br><hr><br><br>
-	<div class="row">
-	    <div class="col">
-	       <form action="AppointmentServlet" method="post">
-	          <input type="hidden" name="oprt" value="getAppointmentDetails">
-	          Date <input type="date" id="dateInput" name="date">
-	          <input type="submit" value="Search">
-	       </form>
-	    </div>
-	    
-	    <form method="post" action="AppointmentServlet">
-	         <input type="hidden" name="oprt" value="destroyPlist">
-	         <input class="btn btn-outline-primary" type="submit" value="Get Today's Appointment List">
-	    </form>
-	    
-	    
-	    
-	</div><br><br>
-	
-	<div class="row">
-	     <div class="col md-10">
-	         <% 
-	            PatientDao pdao=new PatientDao(FactoryProvider.getFactory());
-	            List<Patient> plist=(List) session.getAttribute("plist");
-	            List<Patient> tplist= pdao.getCurrentDatePatients(doctor.getDid());
-	       
-		       if(plist!=null){ %>
-		    	  <table class="table table-dark">
-					  <tr>
-					    <th>Patient Name</th>
-					    <th>Patient Mobile</th>
-					    <th>Date</th>
-					  </tr>
-					  
-					 <% for(Patient p: plist) {  %>
-					  <tr>
-					    <td><%=p.getPname() %></td>
-					    <td><%=p.getPmobile() %></td>
-					    <td><%=p.getAdate()%></td>
-					  </tr>
-					 <% } %> 
-				 </table>  
-				  
-		       <% }else if(tplist!=null){   %>
-		    	   
-		    	   <table class="table table-dark">
-					  <tr>
-					    <th>Patient Name</th>
-					    <th>Patient Mobile</th>
-					    <th>Date</th>
-					  </tr>
-					  
-					 <% for(Patient p: tplist) {  %>
-					  <tr>
-					    <td><%=p.getPname() %></td>
-					    <td><%=p.getPmobile() %></td>
-					    <td><%=p.getAdate()%></td>
-					  </tr>
-					 <% } %> 
-				 </table>  
+
+    <br><h1 class="text-white">APPOINTMENT LIST</h1><br><hr><br><br>
+
+       <div class="row">
+
+           <div class="col">
+
+              <form action="AppointmentServlet" method="post">
+
+                 <input type="hidden" name="oprt" value="getAppointmentDetails">
+
+                <b> Date : </b> <input type="date" id="dateInput" name="date">
+
+                 <input class="btn btn-success" type="submit"  value="Search">
+
+              </form>
+
+           </div>
+
+          
+
+           
+
+           
+
+           
+
+           
+
+       </div><br><br>
+
+      
+
+       <div class="row">
+
+            <div class="col md-10">
+
+                <%
+
+                   PatientDao pdao=new PatientDao(FactoryProvider.getFactory());
+
+                   List<Patient> plist=(List) session.getAttribute("plist");
+
+                   List<Patient> tplist= pdao.getCurrentDatePatients(doctor.getDid());
+
+             
+
+                    if(plist!=null){ %>
+
+                      <table class="table table-dark">
+
+                                   <tr>
+
+                                     <th><b><i>Patient Name</i></b></th>
+
+                                     <th><b><i>Patient Mobile</i></b></th>
+
+                                     <th><b><i>Date</i></b></th>
+
+                                   </tr>
+
+                                  
+
+                                  <% for(Patient p: plist) {  %>
+
+                                   <tr>
+
+                                     <td><%=p.getPname() %></td>
+
+                                     <td><%=p.getPmobile() %></td>
+
+                                     <td><%=p.getAdate()%></td>
+
+                                   </tr>
+
+                                 <% } %>
+
+                           </table> 
+
+                            
+
+                    <% }else if(tplist!=null){   %>
+
+                       
+
+                       <table class="table table-dark">
+
+                                   <tr>
+
+                                     <th><b><i>Patient Name</i></b></th>
+
+                                     <th><b><i>Mobile</i></b></th>
+
+                                     <th><b><i>Date</i></b></th>
+
+                                   </tr>
+
+                                  
+
+                                  <% for(Patient p: tplist) {  %>
+
+                                   <tr>
+
+                                     <td><%=p.getPname() %></td>
+
+                                     <td><%=p.getPmobile() %></td>
+
+                                     <td><%=p.getAdate()%></td>
+
+                                   </tr>
+
+                                 <% } %>
+
+                           </table> 
+
    
-		       <% }else { 
-		    	   System.out.println("**********both plist and tplist are null********");
-		       } %>
-		  </div>
-	</div>
+
+                    <% }else {
+
+                     
+
+                    } %>
+
+               </div>
+
+       </div>
+
 </div>
+
 </body>
+
+</html>
 </html>
